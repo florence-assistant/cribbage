@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cribbage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Top bar -->
+    <header id="header">
+      <h1>🃏 Cribbage</h1>
+      <div id="score-display">
+        <span id="score-you" class="score-badge you">You: <strong>0</strong></span>
+        <span id="score-ai" class="score-badge ai">AI: <strong>0</strong></span>
+      </div>
+    </header>
+
+    <!-- Cribbage board -->
+    <div id="board-container">
+      <div id="cribbage-board">
+        <div class="board-track" id="track-you">
+          <span class="track-label">You</span>
+          <div class="track-holes"></div>
+        </div>
+        <div class="board-track" id="track-ai">
+          <span class="track-label">AI</span>
+          <div class="track-holes"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game area -->
+    <div id="game-area">
+      <!-- AI hand (face down) -->
+      <div id="ai-zone" class="card-zone">
+        <h3>AI's Hand</h3>
+        <div id="ai-hand" class="hand"></div>
+      </div>
+
+      <!-- Middle area: starter, played cards, crib -->
+      <div id="middle-zone">
+        <div id="deck-area">
+          <div id="deck-placeholder" class="card card-back" title="Deck">🂠</div>
+          <div id="starter-card" class="card card-placeholder">
+            <span class="placeholder-text">Starter</span>
+          </div>
+        </div>
+        <div id="play-area">
+          <div id="peg-count">Count: <strong id="peg-count-value">0</strong></div>
+          <div id="played-cards" class="hand"></div>
+        </div>
+        <div id="crib-area">
+          <div class="crib-label">Crib (<span id="crib-owner">—</span>)</div>
+          <div id="crib-cards" class="hand"></div>
+        </div>
+      </div>
+
+      <!-- Player hand -->
+      <div id="player-zone" class="card-zone">
+        <h3>Your Hand</h3>
+        <div id="player-hand" class="hand"></div>
+      </div>
+    </div>
+
+    <!-- Action bar -->
+    <div id="action-bar">
+      <button id="btn-action" class="btn-primary" disabled>Start Game</button>
+      <div id="game-message">Press Start to begin!</div>
+    </div>
+
+    <!-- Scoring overlay -->
+    <div id="scoring-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2 id="scoring-title">Scoring</h2>
+        <div id="scoring-hand" class="hand"></div>
+        <div id="scoring-starter"></div>
+        <div id="scoring-breakdown"></div>
+        <button id="btn-scoring-ok" class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- Game over overlay -->
+    <div id="gameover-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2 id="gameover-title">Game Over</h2>
+        <p id="gameover-message"></p>
+        <button id="btn-new-game" class="btn-primary">New Game</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
